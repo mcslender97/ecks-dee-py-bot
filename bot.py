@@ -1,6 +1,7 @@
 import os
 import discord
 import re
+import pattern as p
 from dotenv import load_dotenv
 # load ./.env file
 load_dotenv()
@@ -8,8 +9,10 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 
 client = discord.Client()
-#   Regex pattern for xd
-pattern =  r"\bXD\b"
+# Regex pattern for xd
+# Look for regex pattern in message 
+
+pattern = p.pattern
 
 # pattern match: XD (case insensitive) 
 
@@ -32,7 +35,7 @@ async def on_message(message):
         return
     # if message contains xd, reply with ECKS DEE
     if re.search(pattern, message.content, re.IGNORECASE): #(case insensitive)
-        await message.channel.send('ECKS DEE')
+        await message.channel.send('XD? You mean ECKS DEE right?')
         
  
 
