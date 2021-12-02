@@ -22,3 +22,5 @@ class Test_ECKS_DEE(unittest.TestCase):
         But I like to use it nontheless
         Because it is quirky.
         """, re.IGNORECASE))
+    def test_aSubStringInOtherWords(self):
+        self.assertFalse(re.search(pattern, "axdx", re.IGNORECASE))
